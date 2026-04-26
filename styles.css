@@ -16,7 +16,7 @@
 
   --text-primary:  #eeeef2;
   --text-secondary:#8c8c9e;
-  --text-tertiary: #4a4a5a;
+  --text-tertiary: #8c8c9e; /*#4a4a5a;*/
 
   --accent:        #3d8bff;
   --accent-glow:   rgba(61,139,255,0.18);
