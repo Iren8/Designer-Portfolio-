@@ -124,7 +124,7 @@ ul { list-style: none; }
 }
 .nav__links { display: flex; align-items: center; gap: 32px; }
 .nav__links a {
-  font-size: 0.825rem; color: var(--text-secondary);
+  font-size: 1rem; color: var(--text-secondary);
   position: relative;
   transition: color 0.16s;
 }
@@ -139,7 +139,7 @@ ul { list-style: none; }
 
 .nav__back {
   display: flex; align-items: center; gap: 8px;
-  font-size: 0.8rem; color: var(--text-secondary);
+  font-size: 1rem; color: var(--text-secondary);
   transition: color 0.16s;
 }
 .nav__back:hover { color: var(--text-primary); }
@@ -229,7 +229,7 @@ ul { list-style: none; }
 /* --- BUTTONS --- */
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+  font-family: var(--font-body); font-size: 1rem; font-weight: 500;
   padding: 13px 24px; border-radius: var(--r-sm);
   border: 1px solid transparent;
   transition: all 0.28s var(--ease-expo);
@@ -247,7 +247,7 @@ ul { list-style: none; }
   display: inline-flex; align-items: center; gap: 8px;
   padding: 6px 14px; border-radius: 100px;
   border: 1px solid var(--border-soft); background: var(--bg-raised);
-  font-family: var(--font-mono); font-size: 0.65rem;
+  font-family: var(--font-mono); font-size: 0.8rem;
   letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-secondary);
 }
 .availability__dot {
@@ -309,7 +309,7 @@ ul { list-style: none; }
 .hero__name em { font-style: normal; color: var(--text-tertiary); }
 
 .hero__title {
-  font-family: var(--font-mono); font-size: 0.7rem;
+  font-family: var(--font-mono); font-size: 0.9rem;
   letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-tertiary);
 }
 
@@ -352,7 +352,7 @@ ul { list-style: none; }
 .hero-card--bottom { width: 165px; bottom:8%; left:8%; transform:rotate(-3.5deg); z-index:1; opacity:.7; }
 
 .hero-card__tag {
-  font-family: var(--font-mono); font-size: 0.575rem;
+  font-family: var(--font-mono); font-size: 0.8rem;
   letter-spacing: 1.5px; text-transform: uppercase;
   color: var(--accent-blue); margin-bottom: 8px;
 }
@@ -360,7 +360,7 @@ ul { list-style: none; }
   font-family: var(--font-display); font-size: 1.5rem;
   font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px;
 }
-.hero-card__label { font-size: 0.75rem; color: var(--text-secondary); }
+.hero-card__label { font-size: 0.8rem; color: var(--text-secondary); }
 .hero-card__chart {
   display: flex; align-items: flex-end; gap: 3px; height: 36px; margin-top: 14px;
 }
@@ -437,13 +437,13 @@ ul { list-style: none; }
   position:relative; flex-shrink:0;
 }
 .case-card__num {
-  font-family: var(--font-mono); font-size:0.6rem;
+  font-family: var(--font-mono); font-size:0.8rem;
   letter-spacing:2px; text-transform:uppercase;
   color: var(--text-tertiary); margin-bottom:10px;
 }
 .case-card__tag {
   display:inline-flex; align-items:center;
-  font-family: var(--font-mono); font-size:0.6rem;
+  font-family: var(--font-mono); font-size:0.8rem;
   letter-spacing:1.5px; text-transform:uppercase;
   color: var(--card-accent);
   border: 1px solid color-mix(in srgb, var(--card-accent) 25%, transparent);
@@ -467,7 +467,7 @@ ul { list-style: none; }
   font-weight:700; letter-spacing:-0.2px; color: var(--card-accent); line-height:1;
 }
 .case-card__metric-lbl {
-  font-family: var(--font-mono); font-size:0.55rem;
+  font-family: var(--font-mono); font-size:0.8rem;
   letter-spacing:0.8px; text-transform:uppercase;
   color: var(--text-tertiary); margin-top:3px;
 }
