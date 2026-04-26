@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Irina Shytsik — Product Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <div id="progress-bar"></div>
+  <div id="page-overlay"></div>
+  <div id="cursor"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">
+      IS<span class="nav__logo-dot"></span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav__mobile-btn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <nav class="mobile-nav">
+    <ul class="mobile-nav__links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ────────────────── HERO ────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="hero__noise"></div>
+      <div class="hero__grid-lines"></div>
+      <div class="hero__glow hero__glow--1"></div>
+      <div class="hero__glow hero__glow--2"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero__content">
+        <!-- Left -->
+        <div class="hero__left">
+          <div class="availability reveal">
+            <span class="availability__dot"></span>
+            Available for Senior Roles
+          </div>
+
+          <h1 class="hero__name reveal rd1">
+            Irina<br/><em>Shytsik</em>
+          </h1>
+
+          <p class="hero__title reveal rd2">Product Designer — FinTech / AI / IoT</p>
+
+          <p class="hero__value reveal rd3">
+            Designing financial products that build trust, drive conversion, and survive complexity.
+          </p>
+
+          <div class="hero__metrics reveal rd4">
+            <div class="hero__metric">
+              <div class="hero__metric-value"><span class="m-blue">+18%</span></div>
+              <div class="hero__metric-label">Conversion lift</div>
+            </div>
+            <div class="hero__metric">
+              <div class="hero__metric-value"><span class="m-green">−25%</span></div>
+              <div class="hero__metric-label">Drop-off reduction</div>
+            </div>
+            <div class="hero__metric">
+              <div class="hero__metric-value"><span class="m-purple">6+</span></div>
+              <div class="hero__metric-label">Years in FinTech</div>
+            </div>
+          </div>
+
+          <div class="hero__actions reveal rd5">
+            <a href="#work" class="btn btn--primary">
+              View Case Studies
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn btn--outline">Contact</a>
+          </div>
+        </div>
+
+        <!-- Right — floating cards -->
+        <div class="hero__visual reveal--right rd2">
+          <!-- Main card -->
+          <div class="hero-card hero-card--main">
+            <div class="hero-card__tag">Conversion Rate</div>
+            <div class="hero-card__value">+18.4%</div>
+            <div class="hero-card__label">After UX redesign · Q3 2024</div>
+            <div class="hero-card__chart">
+              <div class="hc-bar" style="height:45%"></div>
+              <div class="hc-bar" style="height:60%"></div>
+              <div class="hc-bar" style="height:38%"></div>
+              <div class="hc-bar hc-bar--b" style="height:72%"></div>
+              <div class="hc-bar hc-bar--a" style="height:88%"></div>
+              <div class="hc-bar hc-bar--a" style="height:96%"></div>
+            </div>
+          </div>
+          <!-- Top right card -->
+          <div class="hero-card hero-card--right">
+            <div class="hero-card__tag">Onboarding</div>
+            <div class="hero-card__value">KYC Flow</div>
+            <div class="hero-card__label">3-step redesign</div>
+            <div class="hero-card__progress">
+              <div class="hero-card__progress-fill"></div>
+            </div>
+          </div>
+          <!-- Bottom left card -->
+          <div class="hero-card hero-card--bottom">
+            <div class="hero-card__tag">System</div>
+            <div class="hc-line"></div>
+            <div class="hc-line"></div>
+            <div class="hc-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <div class="hero__scroll-line"></div>
+      <span class="hero__scroll-label">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ────────────────── WORK ────────────────── -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="cases-header reveal">
+        <div>
+          <div class="eyebrow">Selected Work</div>
+          <h2 class="display-lg">Case Studies</h2>
+        </div>
+        <p class="body-md" style="max-width:280px">
+          Three product problems, three different domains, one design standard.
+        </p>
+      </div>
+
+      <div class="cases-grid">
+
+        <!-- Card 1: Banking -->
+        <a href="case-banking.html" class="case-card case-card--trust reveal rd1">
+          <div class="case-card__glow"></div>
+          <div class="case-card__body">
+            <div class="case-card__visual">
+              <div class="card-mock">
+                <div class="cm-topbar"></div>
+                <div class="cm-row">
+                  <div class="cm-circle"></div>
+                  <div class="cm-lines">
+                    <div class="cm-line cm-line--70"></div>
+                    <div class="cm-line cm-line--50"></div>
+                  </div>
+                </div>
+                <div class="cm-block"></div>
+                <div class="cm-row">
+                  <div class="cm-lines">
+                    <div class="cm-line cm-line--40"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="case-card__num">01</div>
+            <div class="case-card__tag">Digital Banking · Trust</div>
+            <h3 class="case-card__title">Digital Banking App</h3>
+            <p class="case-card__desc">
+              Redesigning KYC onboarding to eliminate abandonment and build immediate trust in a challenger bank experience.
+            </p>
+            <div class="case-card__footer">
+              <div class="case-card__metrics">
+                <div>
+                  <div class="case-card__metric-val">+18%</div>
+                  <div class="case-card__metric-lbl">Completion</div>
+                </div>
+                <div>
+                  <div class="case-card__metric-val">−31%</div>
+                  <div class="case-card__metric-lbl">Drop-off</div>
+                </div>
+              </div>
+              <div class="case-card__arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 2: AI -->
+        <a href="case-ai.html" class="case-card case-card--intelligence reveal rd2">
+          <div class="case-card__glow"></div>
+          <div class="case-card__body">
+            <div class="case-card__visual">
+              <div class="card-mock">
+                <div class="cm-topbar" style="width:60%"></div>
+                <div class="cm-row">
+                  <div class="cm-lines">
+                    <div class="cm-line cm-line--70"></div>
+                    <div class="cm-line cm-line--40"></div>
+                  </div>
+                  <div class="cm-bars">
+                    <div class="cm-bar" style="height:40%"></div>
+                    <div class="cm-bar cm-bar--a" style="height:70%"></div>
+                    <div class="cm-bar" style="height:55%"></div>
+                    <div class="cm-bar cm-bar--a" style="height:90%"></div>
+                  </div>
+                </div>
+                <div class="cm-block"></div>
+              </div>
+            </div>
+            <div class="case-card__num">02</div>
+            <div class="case-card__tag">AI · Intelligence</div>
+            <h3 class="case-card__title">AI Call Centre Platform</h3>
+            <p class="case-card__desc">
+              Designing real-time AI assistance for financial dispute agents — reducing handle time without overwhelming cognitive load.
+            </p>
+            <div class="case-card__footer">
+              <div class="case-card__metrics">
+                <div>
+                  <div class="case-card__metric-val">−2.4m</div>
+                  <div class="case-card__metric-lbl">Handle time</div>
+                </div>
+                <div>
+                  <div class="case-card__metric-val">+34%</div>
+                  <div class="case-card__metric-lbl">CSAT</div>
+                </div>
+              </div>
+              <div class="case-card__arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 3: Smart Home -->
+        <a href="case-smart-home.html" class="case-card case-card--control reveal rd3">
+          <div class="case-card__glow"></div>
+          <div class="case-card__body">
+            <div class="case-card__visual">
+              <div class="card-mock">
+                <div class="cm-topbar" style="width:30%"></div>
+                <div class="cm-row">
+                  <div class="cm-bars" style="width:100%;gap:4px">
+                    <div class="cm-bar" style="height:55%"></div>
+                    <div class="cm-bar cm-bar--a" style="height:80%"></div>
+                    <div class="cm-bar" style="height:40%"></div>
+                    <div class="cm-bar cm-bar--a" style="height:95%"></div>
+                    <div class="cm-bar" style="height:60%"></div>
+                    <div class="cm-bar" style="height:35%"></div>
+                  </div>
+                </div>
+                <div class="cm-row">
+                  <div class="cm-circle"></div>
+                  <div class="cm-lines">
+                    <div class="cm-line cm-line--50"></div>
+                  </div>
+                  <div class="cm-circle"></div>
+                  <div class="cm-lines">
+                    <div class="cm-line cm-line--40"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="case-card__num">03</div>
+            <div class="case-card__tag">IoT · Control</div>
+            <h3 class="case-card__title">Smart Home App</h3>
+            <p class="case-card__desc">
+              Transforming raw IoT telemetry into human-readable energy insights that drive daily engagement and cost savings.
+            </p>
+            <div class="case-card__footer">
+              <div class="case-card__metrics">
+                <div>
+                  <div class="case-card__metric-val">+45%</div>
+                  <div class="case-card__metric-lbl">Daily usage</div>
+                </div>
+                <div>
+                  <div class="case-card__metric-val">3.1×</div>
+                  <div class="case-card__metric-lbl">Automation</div>
+                </div>
+              </div>
+              <div class="case-card__arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────────── EXPERTISE ────────────────── -->
+  <section class="section expertise" id="expertise">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">Domain Knowledge</div>
+        <h2 class="display-lg">FinTech Expertise</h2>
+      </div>
+
+      <div class="expertise__grid">
+        <div class="expertise__item reveal rd1">
+          <div class="expertise__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="expertise__title">KYC & Onboarding</div>
+          <p class="expertise__desc">Progressive disclosure, document scanning UX, and trust-signal placement that reduce abandonment without cutting compliance corners.</p>
+          <div class="expertise__tags">
+            <span class="expertise__tag">Identity flows</span>
+            <span class="expertise__tag">Liveness check</span>
+            <span class="expertise__tag">Biometrics</span>
+          </div>
+        </div>
+
+        <div class="expertise__item reveal rd2">
+          <div class="expertise__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <div class="expertise__title">Payments UX</div>
+          <p class="expertise__desc">Zero-error transaction design. Every confirmation state, error message, and success moment engineered to build user confidence.</p>
+          <div class="expertise__tags">
+            <span class="expertise__tag">Checkout</span>
+            <span class="expertise__tag">P2P transfers</span>
+            <span class="expertise__tag">Subscriptions</span>
+          </div>
+        </div>
+
+        <div class="expertise__item reveal rd3">
+          <div class="expertise__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="expertise__title">Data Dashboards</div>
+          <p class="expertise__desc">Financial data is dense. I specialise in hierarchy, progressive disclosure, and annotation systems that make complexity readable.</p>
+          <div class="expertise__tags">
+            <span class="expertise__tag">Analytics</span>
+            <span class="expertise__tag">Portfolio views</span>
+            <span class="expertise__tag">Real-time data</span>
+          </div>
+        </div>
+
+        <div class="expertise__item reveal rd4">
+          <div class="expertise__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 15.54a5 5 0 0 1 0-7.07"/></svg>
+          </div>
+          <div class="expertise__title">Trust & Security</div>
+          <p class="expertise__desc">Translating security complexity into calm user interactions. Fraud alerts, 2FA, and session patterns designed to reassure, not alarm.</p>
+          <div class="expertise__tags">
+            <span class="expertise__tag">Fraud UX</span>
+            <span class="expertise__tag">Permissions</span>
+            <span class="expertise__tag">Auth flows</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────────── PROCESS ────────────────── -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:64px">
+        <div class="eyebrow">How I Work</div>
+        <h2 class="display-lg">Design Process</h2>
+      </div>
+
+      <div class="process-layout">
+        <!-- Steps -->
+        <div class="process-steps">
+          <div class="pstep" data-index="0">
+            <div class="pstep__num">01</div>
+            <div>
+              <div class="pstep__title">Problem Framing</div>
+              <div class="pstep__desc">Start with user behaviour data, not assumptions. Map the job-to-be-done.</div>
+            </div>
+          </div>
+          <div class="pstep" data-index="1">
+            <div class="pstep__num">02</div>
+            <div>
+              <div class="pstep__title">Systems Thinking</div>
+              <div class="pstep__desc">Map the full ecosystem before designing a single screen.</div>
+            </div>
+          </div>
+          <div class="pstep" data-index="2">
+            <div class="pstep__num">03</div>
+            <div>
+              <div class="pstep__title">Decision Making</div>
+              <div class="pstep__desc">Every design decision has a hypothesis. Hypotheses get validated.</div>
+            </div>
+          </div>
+          <div class="pstep" data-index="3">
+            <div class="pstep__num">04</div>
+            <div>
+              <div class="pstep__title">Trade-offs</div>
+              <div class="pstep__desc">Speed vs depth. Delight vs compliance. I name the trade-off and choose deliberately.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detail panels -->
+        <div>
+          <div class="pdetail" data-index="0">
+            <div class="pdetail__heading">Start with the behaviour, not the brief.</div>
+            <p class="pdetail__body">Before opening Figma, I analyse session recordings, funnel data, and support logs. I want to know where users fail and why — not just what the stakeholder thinks the problem is. Good problem framing cuts weeks of iteration.</p>
+            <div class="pdetail__visual">User Research & Behaviour Analysis</div>
+          </div>
+          <div class="pdetail" data-index="1">
+            <div class="pdetail__heading">The screen is the last thing I design.</div>
+            <p class="pdetail__body">Financial products are systems. I map user journeys, service touchpoints, and technical constraints before touching component layout. This prevents designing beautiful dead-ends that don't survive implementation.</p>
+            <div class="pdetail__visual">System Mapping & Flow Architecture</div>
+          </div>
+          <div class="pdetail" data-index="2">
+            <div class="pdetail__heading">Decisions anchored to measurable outcomes.</div>
+            <p class="pdetail__body">Every design choice I make has a stated hypothesis: "If we reduce the KYC steps from 5 to 3, completion will increase by 10%+." I test assumptions early and cheaply, then iterate. No HiPPO decisions.</p>
+            <div class="pdetail__visual">Hypothesis-Driven Design</div>
+          </div>
+          <div class="pdetail" data-index="3">
+            <div class="pdetail__heading">Name the trade-off. Own the decision.</div>
+            <p class="pdetail__body">FinTech design is full of genuine tensions: security vs. convenience, regulatory compliance vs. user delight, speed to market vs. design quality. I make trade-offs explicit, document them, and take ownership of the consequences.</p>
+            <div class="pdetail__visual">Trade-off Documentation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────────── ABOUT ────────────────── -->
+  <section class="section" id="about" style="background:var(--bg-raised);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal reveal--left">
+          <div class="about__portrait-frame">
+            <div class="about__portrait-initials">IS</div>
+            <div class="about__portrait-badge">
+              <div>
+                <div class="about__badge-role">Senior Product Designer</div>
+                <div class="about__badge-loc">Available · Remote / EU</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal rd2">
+          <div class="eyebrow">About</div>
+          <h2 class="display-lg" style="margin-bottom:32px">Irina Shytsik</h2>
+          <p class="about__bio">
+            Senior Product Designer with <strong>6+ years shaping financial products</strong> at the intersection of trust, clarity, and measurable conversion. I've led end-to-end design for challenger banks, B2B payment platforms, and enterprise AI tools.
+          </p>
+          <br/>
+          <p class="about__bio">
+            I think about design as a <strong>systems problem</strong> — how components, flows, and mental models combine to produce outcomes. Currently exploring how <strong>AI can augment designer judgment</strong> in complex regulatory environments, not replace it.
+          </p>
+
+          <div class="about__skill-grid">
+            <div class="about__skill-group">
+              <h4>Tools</h4>
+              <div class="about__skill-item">Figma</div>
+              <div class="about__skill-item">ProtoPie</div>
+              <div class="about__skill-item">Framer</div>
+              <div class="about__skill-item">Principle</div>
+            </div>
+            <div class="about__skill-group">
+              <h4>Methods</h4>
+              <div class="about__skill-item">Jobs-to-be-done</div>
+              <div class="about__skill-item">Usability testing</div>
+              <div class="about__skill-item">Design sprints</div>
+              <div class="about__skill-item">A/B testing</div>
+            </div>
+            <div class="about__skill-group">
+              <h4>Domains</h4>
+              <div class="about__skill-item">FinTech / Banking</div>
+              <div class="about__skill-item">AI / LLM Products</div>
+              <div class="about__skill-item">IoT / Smart devices</div>
+              <div class="about__skill-item">Enterprise SaaS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────────── CONTACT ────────────────── -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow" style="justify-content:center">Get in Touch</div>
+        <h2 class="contact__heading">
+          Open to senior<br/>product design<span class="accent-b">.</span>
+        </h2>
+        <p class="contact__sub">Let's talk about your next financial product.</p>
+
+        <div class="contact__actions">
+          <a href="mailto:irina@example.com" class="btn btn--primary">
+            Start a Conversation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#work" class="btn btn--outline">View Work</a>
+        </div>
+
+        <div class="contact__links">
+          <a href="mailto:irina@example.com" class="contact__link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            irina@example.com
+          </a>
+          <a href="https://linkedin.com/in/irina-shytsik" target="_blank" rel="noopener" class="contact__link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/in/irina-shytsik
+          </a>
+          <a href="https://read.cv/irina" target="_blank" rel="noopener" class="contact__link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            read.cv/irina
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="footer__copy">© 2025 Irina Shytsik — Product Designer</span>
+        <a href="#hero" class="footer__back">↑ Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="motion.js"></script>
+</body>
+</html>
