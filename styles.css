@@ -330,8 +330,8 @@ ul { list-style: none; }
 .hero__metric-value .m-green  { color: var(--accent-green); }
 .hero__metric-value .m-purple { color: var(--accent-purple); }
 .hero__metric-label {
-  font-family: var(--font-mono); font-size: 0.6rem;
-  letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-tertiary); margin-top: 5px;
+  font-family: var(--font-body); font-size: 0.6rem;
+  letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-tertiary); margin-top: 6px;
 }
 
 .hero__actions { display: flex; gap: 12px; margin-top: 8px; }
@@ -467,9 +467,9 @@ ul { list-style: none; }
   font-weight:700; letter-spacing:-0.2px; color: var(--card-accent); line-height:1;
 }
 .case-card__metric-lbl {
-  font-family: var(--font-mono); font-size:0.6rem;
+  font-family: var(--font-body); font-size:0.6rem;
   letter-spacing:0.8px; text-transform:uppercase;
-  color: var(--text-tertiary); margin-top:3px;
+  color: var(--text-tertiary); margin-top:6px;
 }
 .case-card__arrow {
   width:32px; height:32px; border-radius:50%;
