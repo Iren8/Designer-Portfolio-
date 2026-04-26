@@ -443,7 +443,7 @@ ul { list-style: none; }
 }
 .case-card__tag {
   display:inline-flex; align-items:center;
-  font-family: var(--font-mono); font-size:0.8rem;
+  font-family: var(--font-mono); font-size:0.6rem;
   letter-spacing:1.5px; text-transform:uppercase;
   color: var(--card-accent);
   border: 1px solid color-mix(in srgb, var(--card-accent) 25%, transparent);
@@ -451,11 +451,11 @@ ul { list-style: none; }
   padding: 4px 10px; border-radius:100px; margin-bottom: 14px;
 }
 .case-card__title {
-  font-family: var(--font-display); font-size:1.25rem;
+  font-family: var(--font-display); font-size:1.5rem;
   font-weight:700; letter-spacing:-0.4px;
   color: var(--text-primary); margin-bottom: 10px; line-height:1.2;
 }
-.case-card__desc { font-size:.875rem; color: var(--text-secondary); line-height:1.65; flex:1; }
+.case-card__desc { font-size:1rem; color: var(--text-secondary); line-height:1.65; flex:1; }
 
 .case-card__footer {
   display:flex; align-items:center; justify-content:space-between;
