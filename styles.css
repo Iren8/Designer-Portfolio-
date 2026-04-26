@@ -309,7 +309,7 @@ ul { list-style: none; }
 .hero__name em { font-style: normal; color: var(--text-tertiary); }
 
 .hero__title {
-  font-family: var(--font-mono); font-size: 0.8rem;
+  font-family: var(--font-mono); font-size: 0.7rem;
   letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-tertiary);
 }
 
@@ -463,11 +463,11 @@ ul { list-style: none; }
 }
 .case-card__metrics { display:flex; gap:20px; }
 .case-card__metric-val {
-  font-family: var(--font-display); font-size:1rem;
+  font-family: var(--font-display); font-size:1.2rem;
   font-weight:700; letter-spacing:-0.2px; color: var(--card-accent); line-height:1;
 }
 .case-card__metric-lbl {
-  font-family: var(--font-mono); font-size:0.7rem;
+  font-family: var(--font-mono); font-size:0.6rem;
   letter-spacing:0.8px; text-transform:uppercase;
   color: var(--text-tertiary); margin-top:3px;
 }
