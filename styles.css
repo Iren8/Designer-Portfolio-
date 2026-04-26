@@ -757,3 +757,11 @@ ul { list-style: none; }
   height: 120px;
   background: linear-gradient(to bottom, transparent, #0b0c10);
 }
+
+.case h3 {
+  transition: transform 0.3s ease;
+}
+
+.case:hover h3 {
+  transform: translateY(-2px);
+}
