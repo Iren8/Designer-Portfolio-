@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Digital Banking Case</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, Arial, sans-serif;
+  background: #0b0c10;
+  color: white;
+}
+
+/* LAYOUT */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container.narrow {
+  max-width: 720px;
+}
+
+/* TYPO */
+.xl { font-size: 3rem; line-height: 1.2; }
+.large { font-size: 1.3rem; line-height: 1.6; }
+.subtitle { color: #aaa; }
+.muted { color: #888; }
+.eyebrow { font-size: 0.75rem; color: #666; margin-bottom: 16px; }
+
+/* SECTIONS */
+.case-section {
+  padding: 140px 0;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.case-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.case-section.dark { background: #111; }
+
+.case-hero {
+  padding: 160px 0 120px;
+}
+
+/* STICKY */
+.case-sticky {
+  height: 200vh;
+  position: relative;
+}
+
+.sticky-box {
+  position: sticky;
+  top: 30vh;
+  transition: transform 0.2s ease;
+}
+
+/* UI SCREENS */
+.ui-screen {
+  height: 320px;
+  background: #16171d;
+  border-radius: 16px;
+  margin-top: 40px;
+
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s ease;
+}
+
+.ui-screen.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* METRICS */
+.metrics {
+  display: flex;
+  gap: 40px;
+}
+
+.metrics strong {
+  font-size: 2rem;
+  display: block;
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: #00d4ff;
+  z-index: 9999;
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress-bar"></div>
+
+<!-- HERO -->
+<section class="case-hero case-section">
+  <div class="container">
+    <h1 class="xl">
+      Designing clarity in high-stakes financial decisions
+    </h1>
+    <p class="subtitle">
+      A digital banking experience where every interaction reduces uncertainty.
+    </p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="case-section dark">
+  <div class="container narrow">
+
+    <p class="eyebrow">The problem</p>
+
+    <h2>
+      Financial decisions were happening without clarity
+    </h2>
+
+    <p class="large">
+      Users were transferring money without understanding outcomes.
+    </p>
+
+    <div class="ui-screen"></div>
+
+  </div>
+</section>
+
+<!-- INSIGHT -->
+<section class="case-sticky">
+  <div class="container sticky-box">
+
+    <p class="eyebrow">Insight</p>
+
+    <h2>
+      Trust is not built by security.<br>
+      It is built by clarity.
+    </h2>
+
+  </div>
+</section>
+
+<!-- SHIFT -->
+<section class="case-section">
+  <div class="container narrow">
+
+    <h2>
+      From secure system → to understandable system
+    </h2>
+
+    <p class="large">
+      Every step became predictable and transparent.
+    </p>
+
+    <div class="ui-screen"></div>
+
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="case-section">
+  <div class="container">
+
+    <div class="feature">
+      <h3>Transparent transactions</h3>
+      <p>Clear status before confirmation</p>
+      <div class="ui-screen"></div>
+    </div>
+
+    <div class="feature">
+      <h3>Guided onboarding</h3>
+      <p>Step-by-step identity flow</p>
+      <div class="ui-screen"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="case-section dark">
+  <div class="container">
+
+    <h2>Impact</h2>
+
+    <div class="metrics">
+      <div><strong>+18%</strong><span>Onboarding</span></div>
+      <div><strong>-30%</strong><span>Support</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section class="case-section">
+  <div class="container narrow">
+
+    <p class="eyebrow">Reflection</p>
+
+    <h2>
+      Clarity builds trust
+    </h2>
+
+    <p class="large">
+      Users don’t need more features. They need confidence.
+    </p>
+
+  </div>
+</section>
+
+<script>
+/* REVEAL */
+const sections = document.querySelectorAll(".case-section, .ui-screen");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.15 });
+
+sections.forEach(el => observer.observe(el));
+
+/* STICKY PARALLAX */
+window.addEventListener("scroll", () => {
+  const sticky = document.querySelector(".sticky-box");
+  if (!sticky) return;
+
+  const offset = window.scrollY * 0.05;
+  sticky.style.transform = `translateY(${offset}px)`;
+});
+
+/* PROGRESS */
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+
+  document.querySelector(".progress-bar").style.width = progress + "%";
+});
+</script>
+
+</body>
+</html>
