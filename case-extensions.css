@@ -1,0 +1,34 @@
+.case-section {
+  padding: 140px 0;
+}
+
+.container.narrow {
+  max-width: 720px;
+}
+
+.xl {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.large {
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+.metrics {
+  display: flex;
+  gap: 40px;
+}
+
+.metrics strong {
+  font-size: 2rem;
+  display: block;
+}
