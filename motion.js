@@ -1,38 +1,36 @@
 'use strict';
 
 /* =========================
-   HELPERS
+   SAFE QUERY HELPERS
 ========================= */
-const qs  = (s, root = document) => root.querySelector(s);
-const qsa = (s, root = document) => [...root.querySelectorAll(s)];
-const lerp = (a, b, t) => a + (b - a) * t;
+const $ = (s, root = document) => root.querySelector(s);
+const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 
 /* =========================
-   GLOBAL STATE
+   INIT GUARDS
 ========================= */
-const state = {
-  mouse: { x: 0, y: 0 },
-  cursor: { x: 0, y: 0 },
-  scrollY: 0,
-};
+function exists(el) {
+  return el !== null && el !== undefined;
+}
 
 /* =========================
-   PAGE TRANSITIONS (UNIFIED)
+   PAGE TRANSITIONS (SAFE)
 ========================= */
-function initPageTransitions() {
-  const overlay = qs('.page-transition') || qs('#page-overlay');
-  if (!overlay) return;
+function initTransitions() {
+  const overlay = $('.page-transition');
 
-  overlay.style.transformOrigin = 'bottom';
+  if (!exists(overlay)) return;
 
-  document.addEventListener('click', e => {
+  document.addEventListener('click', (e) => {
     const link = e.target.closest('a');
     if (!link) return;
 
     const href = link.getAttribute('href');
 
-    if (!href || href.startsWith('#') || href.startsWith('mailto') ||
-        href.startsWith('http') || link.target === '_blank') return;
+    if (!href ||
+        href.startsWith('#') ||
+        href.startsWith('mailto') ||
+        link.target === '_blank') return;
 
     e.preventDefault();
 
@@ -40,7 +38,7 @@ function initPageTransitions() {
 
     setTimeout(() => {
       window.location.href = href;
-    }, 500);
+    }, 450);
   });
 
   window.addEventListener('pageshow', () => {
@@ -49,203 +47,124 @@ function initPageTransitions() {
 }
 
 /* =========================
-   UNIFIED OBSERVER
+   REVEAL SYSTEM (CRASH SAFE)
 ========================= */
 function initReveal() {
-  const elements = qsa('.reveal, .case-section, .ui-screen');
+  const items = $$('.reveal, .case-section, .ui-screen');
 
-  const io = new IntersectionObserver(entries => {
+  if (!items.length) return;
+
+  const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-
-      const delay = entry.target.dataset.delay || 0;
-
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, delay * 100);
-
+      entry.target.classList.add('visible');
       io.unobserve(entry.target);
     });
   }, { threshold: 0.12 });
 
-  elements.forEach(el => io.observe(el));
+  items.forEach(el => io.observe(el));
 }
 
 /* =========================
-   SCROLL SYSTEM (ONE LOOP)
+   SCROLL PROGRESS (SAFE)
 ========================= */
-function initScrollSystem() {
-  const progressBar = qs('.scroll-progress') || qs('#progress-bar');
-  const parallaxEls = qsa('[data-parallax]');
-  const heroVisual = qs('.hero__visual');
-  const nav = qs('.nav');
+function initProgress() {
+  const bar = $('.scroll-progress');
+  if (!exists(bar)) return;
 
   let ticking = false;
 
   window.addEventListener('scroll', () => {
-    state.scrollY = window.scrollY;
+    if (ticking) return;
 
-    if (!ticking) {
-      requestAnimationFrame(update);
-      ticking = true;
-    }
-  }, { passive: true });
+    ticking = true;
 
-  function update() {
-    const scrollY = state.scrollY;
-
-    /* progress */
-    if (progressBar) {
+    requestAnimationFrame(() => {
       const max = document.body.scrollHeight - window.innerHeight;
-      const pct = (scrollY / max) * 100;
-      progressBar.style.width = pct + '%';
-    }
+      const progress = (window.scrollY / max) * 100;
 
-    /* nav state */
-    if (nav) {
-      nav.classList.toggle('nav--scrolled', scrollY > 40);
-    }
-
-    /* hero parallax */
-    if (heroVisual) {
-      heroVisual.style.transform = `translateY(${scrollY * 0.12}px)`;
-    }
-
-    /* generic parallax */
-    parallaxEls.forEach(el => {
-      const speed = parseFloat(el.dataset.parallax) || 0.3;
-      el.style.transform = `translateY(${scrollY * speed}px)`;
+      bar.style.width = progress + '%';
+      ticking = false;
     });
-
-    ticking = false;
-  }
+  }, { passive: true });
 }
 
 /* =========================
-   CURSOR
-========================= */
-function initCursor() {
-  const cursor = qs('#cursor');
-  if (!cursor || window.innerWidth < 768) return;
-
-  document.addEventListener('mousemove', e => {
-    state.mouse.x = e.clientX;
-    state.mouse.y = e.clientY;
-  });
-
-  function loop() {
-    state.cursor.x = lerp(state.cursor.x, state.mouse.x, 0.15);
-    state.cursor.y = lerp(state.cursor.y, state.mouse.y, 0.15);
-
-    cursor.style.transform = `translate(${state.cursor.x}px, ${state.cursor.y}px)`;
-
-    requestAnimationFrame(loop);
-  }
-  loop();
-}
-
-/* =========================
-   CARD GLOW (PREVIEW)
-========================= */
-function initCardGlow() {
-  qsa('.case-card').forEach(card => {
-    const glow = card.querySelector('.case-card__glow');
-    if (!glow) return;
-
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      glow.style.background =
-        `radial-gradient(400px circle at ${x}px ${y}px, rgba(255,255,255,0.07), transparent 70%)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      glow.style.background = 'none';
-    });
-  });
-}
-
-/* =========================
-   MAGNETIC (FIXED, NO JITTER)
+   MAGNETIC HOVER (SAFE)
 ========================= */
 function initMagnetic() {
-  const cards = qsa('.case, .case-card');
+  const cards = $$('.case, .case-card');
+
+  if (!cards.length) return;
 
   cards.forEach(card => {
-    let tx = 0, ty = 0;
+
+    let x = 0, y = 0;
     let raf;
 
-    card.addEventListener('mousemove', e => {
+    card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
 
-      const dx = (e.clientX - (rect.left + rect.width/2)) * 0.04;
-      const dy = (e.clientY - (rect.top + rect.height/2)) * 0.04;
+      const dx = (e.clientX - rect.left - rect.width / 2) * 0.04;
+      const dy = (e.clientY - rect.top - rect.height / 2) * 0.04;
 
       cancelAnimationFrame(raf);
 
       raf = requestAnimationFrame(() => {
-        tx = lerp(tx, dx, 0.12);
-        ty = lerp(ty, dy, 0.12);
+        x = dx;
+        y = dy;
 
-        /* сохраняем scale */
         card.style.transform =
-          `scale(1.035) translate(${tx}px, ${ty}px)`;
+          `scale(1.03) translate(${x}px, ${y}px)`;
       });
     });
 
     card.addEventListener('mouseleave', () => {
-      cancelAnimationFrame(raf);
-
-      function reset() {
-        tx = lerp(tx, 0, 0.1);
-        ty = lerp(ty, 0, 0.1);
-
-        card.style.transform =
-          `scale(1) translate(${tx}px, ${ty}px)`;
-
-        if (Math.abs(tx) > 0.1 || Math.abs(ty) > 0.1) {
-          raf = requestAnimationFrame(reset);
-        } else {
-          card.style.transform = '';
-        }
-      }
-
-      raf = requestAnimationFrame(reset);
+      card.style.transform = 'scale(1)';
     });
+
   });
 }
 
 /* =========================
-   SMOOTH SCROLL
+   CASE LINK HOVER GRADIENT
 ========================= */
-function initSmoothScroll() {
-  qsa('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      const id = link.getAttribute('href').slice(1);
-      const target = document.getElementById(id);
-      if (!target) return;
+function initCaseLinks() {
+  const links = $$('.case-link');
 
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
+  if (!links.length) return;
+
+  links.forEach(link => {
+    link.addEventListener('mousemove', (e) => {
+      const rect = link.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      link.style.setProperty('--x', `${x}px`);
+      link.style.setProperty('--y', `${y}px`);
     });
   });
 }
 
 /* =========================
-   INIT
+   SAFE INIT (IMPORTANT)
 ========================= */
 function init() {
-  initPageTransitions();
-  initReveal();
-  initScrollSystem();
-  initCursor();
-  initCardGlow();
-  initMagnetic();
-  initSmoothScroll();
+  try {
+    initTransitions();
+    initReveal();
+    initProgress();
+    initMagnetic();
+    initCaseLinks();
+  } catch (err) {
+    console.warn('Motion system error:', err);
+  }
 }
 
+/* =========================
+   BOOT
+========================= */
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {
