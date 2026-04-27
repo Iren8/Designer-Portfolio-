@@ -55,3 +55,18 @@ window.addEventListener("scroll", () => {
   const bar = document.querySelector(".scroll-progress");
   if (bar) bar.style.width = progress + "%";
 });
+
+
+document.querySelectorAll(".case-link").forEach(link => {
+
+  link.addEventListener("mousemove", (e) => {
+    const rect = link.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    link.style.setProperty("--x", `${x}px`);
+    link.style.setProperty("--y", `${y}px`);
+  });
+
+});
