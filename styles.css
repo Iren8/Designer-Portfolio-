@@ -448,7 +448,7 @@ ul { list-style: none; }
   color: var(--card-accent);
   border: 1px solid color-mix(in srgb, var(--card-accent) 25%, transparent);
   background: color-mix(in srgb, var(--card-accent) 8%, transparent);
-  padding: 4px 10px; border-radius:100px; margin-bottom: 14px;
+  padding: 4px 10px; border-radius:100px; margin-bottom: 24px;
 }
 .case-card__title {
   font-family: var(--font-display); font-size:1.5rem;
@@ -513,9 +513,9 @@ ul { list-style: none; }
   display:flex; align-items:center; justify-content:center; color:var(--accent); margin-bottom: 20px;
 }
 .expertise__title { font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--text-primary); letter-spacing:-0.2px; margin-bottom:10px; }
-.expertise__desc  { font-size:1rem; color:var(--text-secondary); line-height:1.6; margin-bottom:18px; }
+.expertise__desc  { font-size:.98rem; color:var(--text-secondary); line-height:1.6; margin-bottom:18px; }
 .expertise__tags  { display:flex; flex-wrap:wrap; gap:4px; }
-.expertise__tag   { font-family:var(--font-body); font-size:.8rem; letter-spacing:.5px; color:var(--text-tertiary); border:1px solid var(--border-subtle); padding:3px 7px; border-radius:4px; }
+.expertise__tag   { font-family:var(--font-body); font-size:.8rem; letter-spacing:.5px; color:var(--text-tertiary); border:1px solid var(--border-muted); padding:3px 7px; border-radius:8px; }
 
 /* ============================================================
    PROCESS / ABOUT / CONTACT (HOME)
